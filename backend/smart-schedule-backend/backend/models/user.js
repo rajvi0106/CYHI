@@ -32,8 +32,8 @@ const userSchema = new mongoose.Schema({
       start: { type: String, default: '09:00' },
       end: { type: String, default: '17:00' }
     },
-    breakDuration: { type: Number, default: 15 }, // in minutes
-    maxTaskDuration: { type: Number, default: 120 } // in minutes
+    breakDuration: { type: Number, default: 15 },
+    maxTaskDuration: { type: Number, default: 120 }
   },
   createdAt: {
     type: Date,
@@ -41,7 +41,6 @@ const userSchema = new mongoose.Schema({
   }
 });
 
-// Hash password before saving
 userSchema.pre('save', async function(next) {
   if (!this.isModified('password')) return next();
   
@@ -54,7 +53,6 @@ userSchema.pre('save', async function(next) {
   }
 });
 
-// Compare password method
 userSchema.methods.comparePassword = async function(candidatePassword) {
   return bcrypt.compare(candidatePassword, this.password);
 };

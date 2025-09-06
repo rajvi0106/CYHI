@@ -36,10 +36,20 @@ const scheduleSchema = new mongoose.Schema({
     isCompleted: {
       type: Boolean,
       default: false
+    },
+    energyLevel: {
+      type: String,
+      enum: ['low', 'medium', 'high'],
+      default: 'medium'
     }
   }],
   suggestions: [{
     type: String
+  }],
+  breakSchedule: [{
+    time: String,
+    duration: Number,
+    activity: String
   }],
   createdAt: {
     type: Date,
@@ -51,7 +61,6 @@ const scheduleSchema = new mongoose.Schema({
   }
 });
 
-// Update the updatedAt field before saving
 scheduleSchema.pre('save', function(next) {
   this.updatedAt = Date.now();
   next();

@@ -3,7 +3,6 @@ const Room = require('./models/Room');
 
 const seedRooms = async () => {
   try {
-    // Clear existing rooms
     await Room.deleteMany({});
 
     const rooms = [

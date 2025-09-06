@@ -13,73 +13,66 @@ body {
 
 .app {
   min-height: 100vh;
-  padding: 20px;
 }
 
-.app-header {
-  text-align: center;
-  margin-bottom: 30px;
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
   color: white;
 }
 
-.app-header h1 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(255,255,255,0.3);
+  border-top: 5px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
 }
 
-.app-header p {
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.error-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+.error-container h2 {
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+.error-container p {
+  margin-bottom: 30px;
   font-size: 1.1rem;
   opacity: 0.9;
 }
 
-.app-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
-}
-
-.input-section {
+.error-container button {
   background: white;
-  border-radius: 15px;
-  padding: 25px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  color: #667eea;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.2s;
 }
 
-.schedule-section {
-  background: white;
-  border-radius: 15px;
-  padding: 25px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-
-.mood-suggestions {
-  background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
-  border-radius: 10px;
-  padding: 15px;
-  margin: 20px 0;
-  border-left: 4px solid #ff6b6b;
-}
-
-.mood-suggestions h3 {
-  color: #d63031;
-  margin-bottom: 8px;
-}
-
-.mood-suggestions p {
-  color: #2d3436;
-  font-style: italic;
-}
-
-@media (max-width: 768px) {
-  .app-container {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-  
-  .app-header h1 {
-    font-size: 2rem;
-  }
+.error-container button:hover {
+  transform: translateY(-2px);
 }

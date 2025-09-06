@@ -21,7 +21,7 @@ const taskSchema = new mongoose.Schema({
     type: Number,
     required: true,
     min: 15,
-    max: 480 // 8 hours max
+    max: 480
   },
   priority: {
     type: String,
@@ -52,7 +52,6 @@ const taskSchema = new mongoose.Schema({
   }
 });
 
-// Update the updatedAt field before saving
 taskSchema.pre('save', function(next) {
   this.updatedAt = Date.now();
   next();

@@ -1,0 +1,305 @@
+.mood-analysis {
+  background: white;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  border: 1px solid #e9ecef;
+}
+
+.analysis-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #f8f9fa;
+}
+
+.analysis-header h2 {
+  margin: 0;
+  color: #2d3436;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.refresh-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.refresh-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+}
+
+.refresh-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.analysis-content {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.current-mood-card, .mood-stats-card, .mood-insights-card {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid #e9ecef;
+}
+
+.current-mood-card h3, .mood-stats-card h3, .mood-insights-card h3 {
+  margin: 0 0 20px 0;
+  color: #2d3436;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.current-mood {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  border: 1px solid #e9ecef;
+}
+
+.mood-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.mood-details h4 {
+  margin: 0 0 5px 0;
+  color: #2d3436;
+  font-size: 1.3rem;
+  text-transform: capitalize;
+}
+
+.mood-details p {
+  margin: 0;
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+.mood-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.mood-stat-item {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  border: 1px solid #e9ecef;
+  transition: transform 0.2s ease;
+}
+
+.mood-stat-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.mood-stat-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.mood-stat-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: white;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+.mood-stat-info h4 {
+  margin: 0 0 5px 0;
+  color: #2d3436;
+  font-size: 1.1rem;
+  text-transform: capitalize;
+}
+
+.mood-stat-info p {
+  margin: 0;
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+.mood-stat-metrics {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.metric {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.metric-label {
+  font-size: 0.9rem;
+  color: #6c757d;
+  font-weight: 500;
+  min-width: 100px;
+}
+
+.metric-bar {
+  flex: 1;
+  height: 8px;
+  background: #e9ecef;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.metric-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.metric-value {
+  font-weight: 600;
+  color: #2d3436;
+  font-size: 0.9rem;
+  min-width: 40px;
+  text-align: right;
+}
+
+.insights-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.insight-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 15px;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+  border-left: 4px solid #667eea;
+}
+
+.insight-icon {
+  font-size: 1.2rem;
+  margin-top: 2px;
+}
+
+.insight-text {
+  color: #2d3436;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+.no-mood-data {
+  text-align: center;
+  padding: 40px 20px;
+  color: #6c757d;
+}
+
+.no-data-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.no-mood-data h3 {
+  margin: 0 0 10px 0;
+  color: #2d3436;
+  font-size: 1.3rem;
+}
+
+.no-mood-data p {
+  margin: 0 0 25px 0;
+  font-size: 1rem;
+}
+
+.load-data-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.load-data-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+}
+
+.loading-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid #667eea;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+  .current-mood {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .mood-stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .mood-stat-header {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .metric {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 5px;
+  }
+  
+  .metric-label {
+    min-width: auto;
+  }
+}

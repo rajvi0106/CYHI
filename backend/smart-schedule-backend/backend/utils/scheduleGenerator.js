@@ -1,5 +1,4 @@
 const generateSchedule = (tasks, rooms, dayOfWeek, mood) => {
-  // Get available time slots for the day
   const availableSlots = [];
   rooms.forEach(room => {
     const dayAvailability = room.availability.find(avail => avail.day === dayOfWeek);
@@ -15,7 +14,6 @@ const generateSchedule = (tasks, rooms, dayOfWeek, mood) => {
     }
   });
 
-  // Sort tasks by priority (high first) and duration (shorter first)
   const sortedTasks = [...tasks].sort((a, b) => {
     const priorityOrder = { high: 3, medium: 2, low: 1 };
     if (priorityOrder[a.priority] !== priorityOrder[b.priority]) {
@@ -28,7 +26,6 @@ const generateSchedule = (tasks, rooms, dayOfWeek, mood) => {
   const suggestions = [];
   let slotIndex = 0;
 
-  // Apply mood-based scheduling logic
   if (mood === 'stressed') {
     suggestions.push('Consider scheduling short breaks between tasks');
     suggestions.push('Try to schedule easier tasks first');
@@ -40,21 +37,17 @@ const generateSchedule = (tasks, rooms, dayOfWeek, mood) => {
     suggestions.push('Consider shorter task durations');
   }
 
-  // Schedule tasks
   sortedTasks.forEach((task, index) => {
     if (slotIndex < availableSlots.length) {
       const slot = availableSlots[slotIndex];
-      const startTime = slot.start;
-      const endTime = slot.end;
-
       scheduledTasks.push({
         taskId: task._id,
-        startTime,
-        endTime,
+        startTime: slot.start,
+        endTime: slot.end,
         room: slot.room,
-        isCompleted: false
+        isCompleted: false,
+        energyLevel: index === 0 ? 'high' : index < 3 ? 'medium' : 'low'
       });
-
       slotIndex++;
     }
   });
