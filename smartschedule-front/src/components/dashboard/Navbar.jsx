@@ -37,7 +37,7 @@ const Navbar = ({
         {tabs.map(tab => (
           <button
             key={tab.id}
-            className={tab-btn `${activeTab === tab.id ? 'active' : ''}`}
+            className={`tab-btn ${activeTab === tab.id ? 'active' : ''}`}
             onClick={() => onTabChange(tab.id)}
           >
             <span className="tab-icon">{tab.icon}</span>
@@ -48,7 +48,7 @@ const Navbar = ({
 
       <div className="navbar-actions">
         <button
-          className={ai-toggle-btn `${showAI ? 'active' : ''}`}
+          className={`ai-toggle-btn ${showAI ? 'active' : ''}`}
           onClick={onToggleAI}
           title="Toggle AI Assistant"
         >
